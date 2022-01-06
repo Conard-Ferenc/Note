@@ -1,6 +1,6 @@
 # 摘要
 
-`scroll-snap-type` [CSS](../CSS) 属性定义在滚动容器中的一个临时点（snap point）如何被严格的执行。
+`scroll-snap-type` [**CSS**](../../CSS/) 属性定义在滚动容器中的一个临时点（snap point）如何被严格的执行。
 
 此属性不能用来指定任何精确的动画或者物理运动效果来执行临时点，而是交给用户代理来处理。
 
@@ -51,4 +51,4 @@ scroll-snap-type: unset;
 
 # 关联
 
-[[scroll-snap-align]]
+[scroll-snap-align](./scroll-snap-align)

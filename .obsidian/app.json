@@ -4,5 +4,6 @@
   "defaultViewMode": "source",
   "showLineNumber": true,
   "tabSize": 2,
-  "showFrontmatter": true
+  "showFrontmatter": true,
+  "foldIndent": true
 }

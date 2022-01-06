@@ -14,7 +14,8 @@ scroll-snap-align: center;
 scroll-snap-align: inherit;
 scroll-snap-align: initial;
 scroll-snap-align: revert;
-scroll-snap-align: unset;```
+scroll-snap-align: unset;
+```
 
 ## 值
 
