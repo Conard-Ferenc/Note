@@ -5,5 +5,7 @@
   "showLineNumber": true,
   "tabSize": 2,
   "showFrontmatter": true,
-  "foldIndent": true
+  "foldIndent": true,
+  "showUnsupportedFiles": false,
+  "strictLineBreaks": false
 }
