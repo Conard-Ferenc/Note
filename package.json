@@ -5,7 +5,7 @@
     "@vueuse/core": "^7.5.3",
     "katex": "^0.15.2",
     "vite": "^2.7.12",
-    "vitepress": "^0.21.4",
+    "vitepress": "^0.21.6",
     "vue": "^3.2.26"
   },
   "scripts": {

@@ -13,9 +13,8 @@ function checkFileType(path) {
 /**
  * 格式化文件路径*/
 function prefixPath(basePath, dirPath) {
-  let index = basePath.indexOf("/");
-  // 去除一级目录地址
-  basePath = basePath.slice(index, path.length);
+  // replace用于去除相对路径
+  basePath = basePath.replace(/([\.\\\/])(?!([\.]?[a-zA-z]))/g, "");
   // replace用于处理windows电脑的路径用\表示的问题
   return path.join(basePath, dirPath).replace(/\\/g, "/");
 }
@@ -24,15 +23,10 @@ function prefixPath(basePath, dirPath) {
  * 截取文档路径*/
 function getPath(path, ele) {
   let item = prefixPath(path, ele);
-  if (item.split("/")[6]) {
-    return item.split("/")[3] + "/" + item.split("/")[4] + "/" + item.split("/")[5] + "/" + item.split("/")[6];
-  } else if (item.split("/")[5]) {
-    return item.split("/")[3] + "/" + item.split("/")[4] + "/" + item.split("/")[5];
-  } else if (item.split("/")[4]) {
-    return item.split("/")[3] + "/" + item.split("/")[4];
-  } else {
-    return item.split("/")[3];
-  }
+  console.log(item);
+  let result = item.split("/");
+  result.splice(1, 1);
+  return result.join("/");
 }
 
 /**
@@ -41,21 +35,27 @@ function getGroupChildren(path, ele, root) {
   let palist = fs.readdirSync(path + "/" + ele + "/").sort((a, b) => {
     return a - b;
   });
-  console.log(`palist:`, palist);
   palist.forEach((item) => {
-    // item = item.replace(".md", "");
-    console.log(item);
+    if (item.includes("index")) {
+      let group = {};
+      group.text = "开始"; // item.replace(".md", "");
+      group.link = getPath(path + "/" + ele, item).replace(".md", ".html");
+      return root.splice(0, 0, ...[group]);
+    }
     let info = fs.statSync(path + "/" + ele + "/" + item);
     if (info.isDirectory()) {
       let children = [];
       let group = {};
-      group.text = item.split("-")[0];
+      group.text = item;
       getGroupChildren(path + "/" + ele, item, children);
       group.children = children;
       root.push(group);
     } else {
       if (checkFileType(item)) {
-        root.push(getPath(path + "/" + ele, item));
+        let group = {};
+        group.text = item.replace(".md", "");
+        group.link = getPath(path + "/" + ele, item).replace(".md", "");
+        root.push(group);
       }
     }
   });

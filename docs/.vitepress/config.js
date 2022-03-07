@@ -1,3 +1,5 @@
+const { getChildren } = require("./utils/autoSidebar");
+const getDirectory = (ele) => getChildren("./docs", ele);
 let title = "Conard 的笔记站";
 const nav = [
   {
@@ -21,13 +23,25 @@ const nav = [
   //   link: toggleDark,
   // },
 ];
+const sidebar = {};
+// const getSidebar = () => {
+nav.forEach((item) => {
+  const link = item.text;
+  sidebar[`/${link}`] = getDirectory(link);
+});
+sidebar["/"] = nav;
+// };
+// getSidebar();
+console.log(sidebar);
 
 module.exports = {
+  base: "/Note/",
   lang: "zh-CN",
   title: title,
   description: "这是我的第一个 VitePress 站点",
-  head: [["link", { rel: "icon", href: "/favicon.png", type: "image/png" }]],
+  head: [["link", { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]],
   themeConfig: {
+    lastUpdated: "最近更新时间",
     // 顶部右侧导航
     // nav: [
     //   { text: "Home", link: "/" },
@@ -48,68 +62,7 @@ module.exports = {
       },
     ],
     // 侧边栏
-    sidebar: {
-      "/CSS": [
-        {
-          text: "Flexbox",
-          children: [
-            {
-              text: "flex",
-              link: "/CSS/Flexbox/flex",
-            },
-          ],
-          // text: "CSS",
-          // children: [
-          //   {},
-          //   // {
-          //   //   text: "入职第一周",
-          //   //   link: "/first-week",
-          //   // },
-          //   {
-          //     text: "flex",
-          //     link: "/CSS/Flexbox/flex",
-          //   },
-          // ],
-        },
-        {
-          text: "Scroll-snap",
-          children: [
-            {
-              text: "scroll-snap-type",
-              link: "/CSS/Scroll-snap/scroll-snap-type",
-            },
-            {
-              text: "scroll-snap-align",
-              link: "/CSS/Scroll-snap/scroll-snap-align",
-            },
-          ],
-        },
-      ],
-      "/JavaScript": [
-        {
-          text: "",
-          link: "/JavaScript/index",
-        },
-      ],
-      "/LaTeX": [
-        {
-          text: "开始",
-          link: "/LaTeX/index.md",
-          // children: [
-          //   {
-          //     text: "基础语法",
-          //   },
-          // ],
-        },
-      ],
-      "/Python": [
-        {
-          text: "",
-          link: "/Python/index",
-        },
-      ],
-      "/": nav,
-    },
+    sidebar,
   },
   markdown: {
     lineNumbers: true,
