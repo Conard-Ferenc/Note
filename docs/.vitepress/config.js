@@ -39,7 +39,7 @@ module.exports = {
   lang: "zh-CN",
   title: title,
   description: "这是我的第一个 VitePress 站点",
-  head: [["link", { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]],
+  head: [["link", { rel: "icon", type: "image/x-icon", href: "favicon.ico" }]],
   themeConfig: {
     lastUpdated: "最近更新时间",
     // 顶部右侧导航
