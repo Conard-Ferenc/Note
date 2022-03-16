@@ -1,7 +1,7 @@
 <template>
   <div class="musicBox">
     <div class="musicBox__mask" :style="{ 'filter': backgroundImg ? '' : 'blur(100px)' }"></div>
-    <div id="imgbox" class="musicBox__imgbox">
+    <div ref="flash" id="imgbox" class="musicBox__imgbox">
       <a :href="music.picurl" target="_blank">
         <img :src="music.picurl" alt="专辑图片" />
       </a>
@@ -9,11 +9,14 @@
     <h1 class="musicBox__title">{{ music.name }}</h1>
     <p class="musicBox__artist">{{ music.artistsname }}</p>
     <audio
+      ref="audio"
       id="music"
       :src="music.url"
       :autoplay="autoplay"
       controls="controls"
-      :ontimeupdate="update"
+      @ended="update(false, true)"
+      @pause="update(true)"
+      @play="update(false)"
     ></audio>
   </div>
 </template>
@@ -119,18 +122,20 @@ export default {
         dataType: 'json',
         success: (res) => {
           const { data } = res;
+          data.url = data.url.replace("http:", "");
+          data.picurl = data.picurl.replace("http:", "");
           _this.music = data;
         }
       });
     },
-    update() {
-      var audio = document.getElementById("music");
-      var flash = document.getElementById("imgbox");
-      if (audio.ended == true) {
-        this.getMusic();
+    update(paused, ended = false) {
+      // var audio = this.$refs.audio;
+      var flash = this.$refs.flash;
+      // console.log(audio, flash);
+      if (ended == true) {
+        return this.getMusic();
       }
-      // console.log(audio.pause)
-      if (audio.paused) {
+      if (paused) {
         flash.style.setProperty("animation-play-state", "paused", "");
       } else {
         flash.style.setProperty("animation-play-state", "running", "");
@@ -220,6 +225,7 @@ audio:focus {
   animation-duration: 7s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-play-state: paused;
 }
 @keyframes go {
   0% {
