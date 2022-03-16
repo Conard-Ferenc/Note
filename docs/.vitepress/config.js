@@ -24,22 +24,19 @@ const nav = [
   // },
 ];
 const sidebar = {};
-// const getSidebar = () => {
 nav.forEach((item) => {
   const link = item.text;
   sidebar[`/${link}`] = getDirectory(link);
 });
 sidebar["/"] = nav;
-// };
-// getSidebar();
-console.log(sidebar);
+// console.log(sidebar);
 
 module.exports = {
-  base: "/Note/",
+  // base: "/Note/",
   lang: "zh-CN",
-  title: title,
-  description: "这是我的第一个 VitePress 站点",
-  head: [["link", { rel: "icon", type: "image/x-icon", href: "favicon.ico" }]],
+  title,
+  description: "我的第一个 VitePress 站点",
+  head: [["link", { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]],
   themeConfig: {
     lastUpdated: "最近更新时间",
     // 顶部右侧导航
@@ -63,5 +60,18 @@ module.exports = {
     ],
     // 侧边栏
     sidebar,
+  },
+  markdown: {
+    lineNumbers: true,
+    config: (md) => {
+      md.use(require("@iktakahiro/markdown-it-katex"));
+
+      // const originalRender = md.render;
+      // const REG_MATH_MUSTACHE_TAG = /<span class="katex-mahml">/g;
+      // const replacer = '<span class="katex-mathml" style="display:none;">';
+      // md.render = function () {
+      //   return originalRender.apply(this, arguments).replace(REG_MATH_MUSTACHE_TAG, replacer);
+      // };
+    },
   },
 };
