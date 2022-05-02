@@ -66,9 +66,9 @@ module.exports = {
     sidebar,
   },
   markdown: {
-    lineNumbers: true,
+    // lineNumbers: true,
     config: (md) => {
-      // md.use(require("@iktakahiro/markdown-it-katex"));
+      md.use(require("@iktakahiro/markdown-it-katex"));
       // const originalRender = md.render;
       // const REG_MATH_MUSTACHE_TAG = /<span class="katex-mathml">/g;
       // const replacer = '<span class="katex-mathml" style="display:none;">';
