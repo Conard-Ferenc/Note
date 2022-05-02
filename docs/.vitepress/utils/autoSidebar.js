@@ -23,7 +23,6 @@ function prefixPath(basePath, dirPath) {
  * 截取文档路径*/
 function getPath(path, ele) {
   let item = prefixPath(path, ele);
-  console.log(item);
   let result = item.split("/");
   result.splice(1, 1);
   return result.join("/");

@@ -52,7 +52,7 @@
 <br />
 
 |  希腊字母   |   表达式    |  希腊字母  |   表达式   |   希腊字母    |    表达式     |
-| :---------: | :---------: | :--------: | :--------: | :-----------: | :-----------: |
+|:-----------:|:-----------:|:----------:|:----------:|:-------------:|:-------------:|
 |  $\alpha$   |  `\alpha`   |  $\beta$   |  `\beta`   |   $\gamma$    |   `\gamma`    |
 |  $\delta$   |  `\delta`   | $\epsilon$ | `\epsilon` | $\varepsilon$ | `\varepsilon` |
 |   $\zeta$   |   `\zeta`   |   $\eta$   |   `\eta`   |   $\theta$    |   `\theta`    |
@@ -60,12 +60,13 @@
 |    $\nu$    |    `\nu`    |   $\xi$    |   `\xi`    |     $\pi$     |     `\pi`     |
 |   $\rho$    |   `\rho`    | $\varrho$  | `\varrho`  |   $\sigma$    |   `\sigma`    |
 | $\upsilon$  | `\upsilon`  |   $\phi$   |   `\phi`   |   $\varphi$   |   `\varphi`   |
-|   $\psi$    |   `\psi`    |  $\omega$  |  `\omega`  |   $\Gamma$    |   `\Gamma`    |
-|  $\Delta$   |  `\Delta`   |  $\Theta$  |  `\Theta`  |   $\Lambda$   |   `\Lambda`   |
-|    $\Xi$    |    `\Xi`    |   $\Pi$    |   `\Pi`    |   $\Sigma$    |   `\Sigma`    |
-| $\Upsilon$  | `\Upsilon`  |   $\Phi$   |   `\Phi`   |    $\Psi$     |    `\Psi`     |
-|  $\Omega$   |  `\Omega`   |
+|   $\psi$    |   `\psi`    |  $\omega$  |  `\omega`  |    $\tau$     |    `\tau`     |
+|  $\Gamma$   |  `\Gamma`   |  $\Delta$  |  `\Delta`  |   $\Theta$    |   `\Theta`    |
+|  $\Lambda$  |  `\Lambda`  |   $\Xi$    |   `\Xi`    |     $\Pi$     |     `\Pi`     |
+|  $\Sigma$   |  `\Sigma`   | $\Upsilon$ | `\Upsilon` |    $\Phi$     |    `\Phi`     |
+|   $\Psi$    |   `\Psi`    |  $\Omega$  |  `\Omega`  |               |               |
 
 ## 公式
 
 $\frac{2}{1}$.
+$$\frac{2}{1} = \,2$$

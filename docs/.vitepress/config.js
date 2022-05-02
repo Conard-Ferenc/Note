@@ -18,6 +18,10 @@ const nav = [
     text: "Python",
     link: "/Python/",
   },
+  {
+    text: "Git",
+    link: "/Git/",
+  },
   // {
   //   text: "change",
   //   link: toggleDark,
@@ -61,17 +65,16 @@ module.exports = {
     // 侧边栏
     sidebar,
   },
-  // markdown: {
-  //   lineNumbers: true,
-  //   config: (md) => {
-  //     md.use(require("@iktakahiro/markdown-it-katex"));
-
-  //     // const originalRender = md.render;
-  //     // const REG_MATH_MUSTACHE_TAG = /<span class="katex-mahml">/g;
-  //     // const replacer = '<span class="katex-mathml" style="display:none;">';
-  //     // md.render = function () {
-  //     //   return originalRender.apply(this, arguments).replace(REG_MATH_MUSTACHE_TAG, replacer);
-  //     // };
-  //   },
-  // },
+  markdown: {
+    lineNumbers: true,
+    config: (md) => {
+      // md.use(require("@iktakahiro/markdown-it-katex"));
+      // const originalRender = md.render;
+      // const REG_MATH_MUSTACHE_TAG = /<span class="katex-mathml">/g;
+      // const replacer = '<span class="katex-mathml" style="display:none;">';
+      // md.render = function () {
+      //   return originalRender.apply(this, arguments).replace(REG_MATH_MUSTACHE_TAG, replacer);
+      // };
+    },
+  },
 };

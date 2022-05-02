@@ -1,3 +1,5 @@
 .obsidian/workspace
 node_modules/
 docs/.vitepress/dist
+.vscode/
+.obsidian/

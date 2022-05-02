@@ -8,16 +8,8 @@
     </div>
     <h1 class="musicBox__title">{{ music.name }}</h1>
     <p class="musicBox__artist">{{ music.artistsname }}</p>
-    <audio
-      ref="audio"
-      id="music"
-      :src="music.url"
-      :autoplay="autoplay"
-      controls="controls"
-      @ended="update(false, true)"
-      @pause="update(true)"
-      @play="update(false)"
-    ></audio>
+    <audio ref="audio" id="music" :src="music.url" :autoplay="autoplay" controls="controls" @ended="update(false, true)"
+      @pause="update(true)" @play="update(false)" @error="update(false, true)"></audio>
   </div>
 </template>
 
@@ -149,11 +141,13 @@ export default {
 * {
   color: #0d1117;
 }
+
 input:focus,
 button:focus,
 audio:focus {
   outline: 0;
 }
+
 .musicBox {
   display: block;
   position: relative;
@@ -171,6 +165,7 @@ audio:focus {
   overflow: hidden;
   transition: all 0.5s;
 }
+
 .musicBox__mask {
   position: absolute;
   left: 0;
@@ -179,6 +174,7 @@ audio:focus {
   height: 100%;
   background-color: #0009;
 }
+
 .musicBox__title {
   font-size: 2.5em;
   padding-right: 3.5em;
@@ -187,26 +183,30 @@ audio:focus {
   overflow: hidden;
   pointer-events: none;
 }
+
 .musicBox__artist {
   font-size: 1.25em;
   transform: translate(5%, 0);
   min-height: 20px;
   pointer-events: none;
 }
-.musicBox > audio {
+
+.musicBox>audio {
   position: relative;
   width: 60%;
   bottom: 5%;
 }
+
 .musicBox__title,
 .musicBox__artist,
-.musicBox > audio {
+.musicBox>audio {
   font-weight: 500;
   text-align: center;
   word-break: keep-all;
   mix-blend-mode: screen;
   filter: invert(1) hue-rotate(180deg);
 }
+
 .musicBox__imgbox {
   display: block;
   position: absolute;
@@ -227,27 +227,33 @@ audio:focus {
   animation-timing-function: linear;
   animation-play-state: paused;
 }
+
 @keyframes go {
   0% {
     transform: rotateZ(0deg);
   }
+
   100% {
     transform: rotateZ(360deg);
   }
 }
+
 @media screen and (max-width: 760px) {
   .musicBox {
     margin-top: 3vh;
     padding: 50px 0;
     width: 85vw;
   }
-  .musicBox > h1 {
+
+  .musicBox>h1 {
     padding-right: 0;
   }
-  .musicBox > audio {
+
+  .musicBox>audio {
     padding: 0 20px;
     width: 100%;
   }
+
   .musicBox__imgbox {
     position: unset;
     margin: auto;
