@@ -128,7 +128,7 @@ export default {
         return this.getMusic();
       }
       if (paused) {
-        flash.style.setProperty("animation-play-state", "paused", "");
+        flash?.style.setProperty("animation-play-state", "paused", "");
       } else {
         flash.style.setProperty("animation-play-state", "running", "");
       }

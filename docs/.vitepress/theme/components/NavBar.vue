@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import { useData } from 'vitepress'
 import NavBarTitle from './NavBarTitle.vue'
+import SearchBox from '../../plugin/plugin-search/SearchBox.vue'
+// import SearchBox from '@SearchBox'
 import NavLinks from './NavLinks.vue'
 import ToggleSideBarButton from './ToggleSideBarButton.vue'
 import DarkModeSwitch from './DarkModeSwitch.vue'
 
 defineEmits(['toggle'])
+
+const { site, frontmatter } = useData()
+const { themeConfig } = site.value
 </script>
 
 <template>
@@ -16,6 +22,8 @@ defineEmits(['toggle'])
     <div class="flex-grow" />
 
     <div class="nav">
+      <SearchBox v-if="themeConfig.search !== false && frontmatter.search !== false" />
+      <!-- <SearchBox /> -->
       <NavLinks />
     </div>
 
@@ -80,7 +88,8 @@ defineEmits(['toggle'])
 
 @media (min-width: 720px) {
   .nav {
-    display: block;
+    display: flex;
+    align-items: center;
   }
 }
 </style>

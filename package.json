@@ -3,6 +3,7 @@
     "@vitejs/plugin-vue": "^2.0.1",
     "@vueuse/core": "^8.3.1",
     "katex": "^0.15.2",
+    "lodash": "^4.17.21",
     "vite": "^2.7.12",
     "vitepress": "^0.21.6",
     "vue": "^3.2.26"

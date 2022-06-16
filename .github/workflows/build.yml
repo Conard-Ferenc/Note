@@ -12,7 +12,7 @@ jobs:
         # 使用action库  actions/checkout获取源码
         uses: actions/checkout@v2
 
-      # 安装Node10
+      # 安装Node16
       - name: 安装node.js
         # 使用action库  actions/setup-node安装node
         uses: actions/setup-node@v1

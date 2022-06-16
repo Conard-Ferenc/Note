@@ -1,5 +1,6 @@
 const { getChildren } = require("./utils/autoSidebar");
 const getDirectory = (ele) => getChildren("./docs", ele);
+const path = require("path");
 let title = "Conard 的笔记站";
 const nav = [
   {
@@ -28,11 +29,14 @@ const nav = [
   // },
 ];
 const sidebar = {};
+const pages = [];
 nav.forEach((item) => {
   const link = item.text;
   sidebar[`/${link}`] = getDirectory(link);
+  pages.push({ title: item.text, path: item.link });
 });
 sidebar["/"] = nav;
+pages.push({ title: "Home", path: "/" });
 // console.log(sidebar);
 
 module.exports = {
@@ -43,6 +47,8 @@ module.exports = {
   head: [["link", { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]],
   themeConfig: {
     lastUpdated: "最近更新时间",
+    search: true,
+    pages,
     // 顶部右侧导航
     // nav: [
     //   { text: "Home", link: "/" },
@@ -64,17 +70,14 @@ module.exports = {
     ],
     // 侧边栏
     sidebar,
+    // alias: {
+    //   "@SearchBox": path.resolve(__dirname, "./pulgin/pulgin-search/SearchBox.vue"),
+    // },
   },
   markdown: {
-    // lineNumbers: true,
+    lineNumbers: true,
     config: (md) => {
       md.use(require("@iktakahiro/markdown-it-katex"));
-      // const originalRender = md.render;
-      // const REG_MATH_MUSTACHE_TAG = /<span class="katex-mathml">/g;
-      // const replacer = '<span class="katex-mathml" style="display:none;">';
-      // md.render = function () {
-      //   return originalRender.apply(this, arguments).replace(REG_MATH_MUSTACHE_TAG, replacer);
-      // };
     },
   },
 };

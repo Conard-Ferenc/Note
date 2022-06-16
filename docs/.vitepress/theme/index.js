@@ -16,21 +16,13 @@ import "./styles/custom.css";
 
 // user components
 import Extra from "./components/Extra.vue";
+const all_extra = ["annotation", "math", "mfrac", "mi", "mn", "mo", "mrow", "mstyle", "mtext", "semantics"];
 
 const theme = {
   Layout,
   NotFound,
   enhanceApp({ app, router, siteData }) {
-    app.component("annotation", Extra);
-    app.component("math", Extra);
-    app.component("mfrac", Extra);
-    app.component("mi", Extra);
-    app.component("mn", Extra);
-    app.component("mo", Extra);
-    app.component("mrow", Extra);
-    app.component("mstyle", Extra);
-    app.component("mtext", Extra);
-    app.component("semantics", Extra);
+    all_extra.forEach((item) => app.component(item, Extra));
   },
 };
 export default theme;

@@ -8,17 +8,6 @@ html:not(.dark) {
   --c-brand: #6eb7fc;
   --c-brand-light: #6eb7fc;
 }
-/* html.dark {
-  --c-white: #0d1117;
-  --c-black: #f2f2f2;
-  --c-text-light-1: #c9d1d9;
-  --c-text-light-2: #efefef;
-  --c-text-light-3: #f2f2f2;
-  --c-divider-light: #5555;
-  --code-inline-bg-color: #99999999;
-  --c-brand: #4c95da;
-  --c-brand-light: #4c95da;
-} */
 html.cafe {
   filter: sepia(0.9) hue-rotate(315deg) brightness(0.9);
 }
@@ -104,7 +93,19 @@ html.dark {
 
   --c-disabled-bg: #333;
   --c-disabled-fg: #aaa;
+
+  --c-brand: #4c95da;
+  --c-brand-light: #4c95da;
 }
+/* html.dark {
+  --c-white: #0d1117;
+  --c-black: #f2f2f2;
+  --c-text-light-1: #c9d1d9;
+  --c-text-light-2: #efefef;
+  --c-text-light-3: #f2f2f2;
+  --c-divider-light: #5555;
+  --code-inline-bg-color: #99999999;
+} */
 
 html.dark tr:nth-child(2n) {
   background-color: var(--c-disabled-bg);
