@@ -1,6 +1,0 @@
-import{_ as n,c as a,o as s,a as t}from"./app.97e03a92.js";const f='{"title":"\u8D77\u6B65","description":"","frontmatter":{},"headers":[{"level":2,"title":"\u8D77\u6B65","slug":"\u8D77\u6B65"}],"relativePath":"Git/index.md","lastUpdated":1651499971812}',e={},o=t(`<h2 id="\u8D77\u6B65" tabindex="-1">\u8D77\u6B65 <a class="header-anchor" href="#\u8D77\u6B65" aria-hidden="true">#</a></h2><div class="language-shell"><pre><code><span class="token function">git</span> clone <span class="token punctuation">[</span><span class="token punctuation">]</span>
-</code></pre></div><div class="language-shell"><pre><code><span class="token function">git</span> status
-<span class="token function">git</span> <span class="token function">add</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token function">git</span> commit -m <span class="token string">&quot;&quot;</span>
-<span class="token function">git</span> rebase -i <span class="token punctuation">[</span>HEAD~*<span class="token punctuation">]</span><span class="token operator">|</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
-</code></pre></div>`,3),c=[o];function p(i,l,u,r,d,_){return s(),a("div",null,c)}var h=n(e,[["render",p]]);export{f as __pageData,h as default};
